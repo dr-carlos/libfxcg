@@ -20,10 +20,16 @@ struct display_fill {
 };
 void Bdisp_AreaClr( struct display_fill *area, unsigned char P2, unsigned short color );
 void Bdisp_EnableColor( int n );
+
 //Frame control:
 void DrawFrame( int color );
-unsigned short FrameColor( int mode, unsigned short color );
 void DrawFrameWorkbench( int, int, int, int, int );
+unsigned short FrameColor( int mode, unsigned short color );
+char GetFrameColor_C3( void );
+
+char FrameColorIndex( int mode, char color3 );
+char DrawFrameC3( char color3 );
+
 //VRAM general display manipulating syscalls:
 void *GetVRAMAddress(void); // Return a pointer to the system's video memory.
 void* GetSecondaryVRAMAddress(void); // Return a pointer to the memory used by SaveVRAM_1 and LoadVRAM_1.
@@ -114,6 +120,7 @@ void MsgBoxPop( void );
 void DisplayMessageBox( unsigned char*message );
 short CharacterSelectDialog( void );
 unsigned char ColorIndexDialog1( unsigned char initial_index, unsigned short disable_mask );
+unsigned char ColorIndexDialog2( unsigned char initial_index, unsigned short disable_mask );
 void MsgBoxMoveWB( void*buffer, int x0, int y0, int x1, int y1, int direction ); //it's more general purpose, works not only for MsgBoxes but for any VRAM contents.
 
 //Cursor manipulating syscalls:
