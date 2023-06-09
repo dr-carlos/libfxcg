@@ -34,12 +34,14 @@ char DrawFrameC3( char color3 );
 void *GetVRAMAddress(void); // Return a pointer to the system's video memory.
 void* GetSecondaryVRAMAddress(void); // Return a pointer to the memory used by SaveVRAM_1 and LoadVRAM_1.
 void Bdisp_AllClr_VRAM( void );
+void Bdisp_PutPixel_x3( int x, int y, int color );
 void Bdisp_SetPoint_VRAM( int x, int y, int color );
 void Bdisp_SetPointWB_VRAM( int x, int y, int color );
 unsigned short Bdisp_GetPoint_VRAM( int x, int y );
 void SaveVRAM_1( void );
 void LoadVRAM_1( void );
 void Bdisp_Fill_VRAM( int color, int mode );
+
 //DD display manipulating syscalls:
 void Bdisp_AreaClr_DD_x3( void*p1 );
 void Bdisp_DDRegisterSelect( int registerno );
